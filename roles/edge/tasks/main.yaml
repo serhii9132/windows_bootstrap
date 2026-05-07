@@ -1,0 +1,18 @@
+---
+- name: Find the Microsoft Edge installer
+  ansible.windows.win_find:
+    paths: "C:\\Program Files (x86)\\Microsoft\\Edge\\Application"
+    patterns: "setup.exe"
+    recurse: true
+  register: __edge_setup_files
+
+
+# More detail about return code: https://source.chromium.org/chromium/chromium/src/+/main:chrome/installer/util/util_constants.h
+- name: Remove Microsoft Edge
+  ansible.windows.win_package:
+    path: "{{ __edge_setup_files.files[0].path }}"
+    product_id: "Microsoft Edge"
+    arguments: "--uninstall --system-level --verbose-logging --force-uninstall"
+    state: absent
+    expected_return_code: 19
+  when: __edge_setup_files.matched > 0

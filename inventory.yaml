@@ -1,0 +1,5 @@
+all:
+  children:
+    target:
+      hosts:
+        win-host:

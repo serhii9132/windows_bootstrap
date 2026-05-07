@@ -1,0 +1,11 @@
+---
+- name: Install applications via Chocolatey
+  chocolatey.chocolatey.win_chocolatey:
+    name: "{{ item.name }}"
+    version: "{{ item.version | default(omit) }}"
+  loop: "{{ __app_list }}"
+
+- name: Install Google Chrome
+  chocolatey.chocolatey.win_chocolatey:
+    name: googlechrome
+    ignore_checksums: true

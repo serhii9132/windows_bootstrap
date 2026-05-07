@@ -1,0 +1,9 @@
+---
+- name: Test
+  hosts: win-host
+  gather_facts: false
+  roles:
+    - role: app
+      tags: app
+    - role: edge
+      tags: edge
