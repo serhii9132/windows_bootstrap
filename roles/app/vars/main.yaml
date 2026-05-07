@@ -2,7 +2,7 @@ __app_list:
   - name: 7zip
   - name: firefox
   - name: filezilla
-  - name: irfanview
+  # - name: irfanview
   - name: notepadplusplus
   - name: winscp
   - name: vcredist140
