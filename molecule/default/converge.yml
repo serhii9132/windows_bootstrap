@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Import utilities app"
+      ansible.builtin.import_role:
+        name: utilities
+      tags: utilities
+
+    - name: "Import role rdp"
+      ansible.builtin.import_role:
+        name: rdp
+      tags: rdp

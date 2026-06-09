@@ -1,0 +1,15 @@
+---
+driver:
+  name: molecule-proxmox
+  options:
+    proxmox_secrets: $HOME/.molecule/proxmox-secrets-windows.yml
+
+platforms:
+  - name: "molecule-test-vps"
+    template_name: ${os}-tmp
+
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_VERBOSITY: 2
+    ANSIBLE_ROLES_PATH: "../../roles"

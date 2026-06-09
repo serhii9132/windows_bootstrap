@@ -3,9 +3,10 @@
   chocolatey.chocolatey.win_chocolatey:
     name: "{{ item.name }}"
     version: "{{ item.version | default(omit) }}"
-  loop: "{{ __app_list }}"
+  loop: "{{ __utilities_core + utilities_extra }}"
 
-- name: Install Google Chrome
+- name: Install Google Chrome (stable)
   chocolatey.chocolatey.win_chocolatey:
     name: googlechrome
     ignore_checksums: true
+  when: utilities_is_install_chrome | bool
