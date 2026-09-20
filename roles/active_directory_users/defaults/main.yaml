@@ -1,0 +1,14 @@
+# List of dictionaries containing user details (login, password, upn) to be created
+# Example: [{login: "user", password: "Pwd123!", upn: "user@corp.local"}]
+ad_users_list: []
+
+# The target Active Directory domain name where users will be created
+# Example: "corp.local"
+ad_users_domain: ""
+
+# Whether the user's password should bypass expiration policies
+ad_users_password_never_expires: false
+
+# List of existing AD groups to which newly created users will be automatically added
+ad_users_default_groups:
+  - "Administrators"

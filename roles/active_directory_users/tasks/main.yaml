@@ -1,0 +1,14 @@
+---
+- name: Create a new user
+  no_log: true
+  microsoft.ad.user:
+    name: "{{ item.login }}"
+    password: "{{ item.password }}"
+    upn: "{{ item.upn }}"
+    enabled: true
+    password_never_expires: "{{ ad_users_password_never_expires }}"
+    state: present
+    groups:
+      add: "{{ ad_users_default_groups }}"
+  loop: "{{ ad_users_list }}"
+  when: ad_users_list | length > 0
