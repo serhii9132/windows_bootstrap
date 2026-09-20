@@ -1,2 +1,5 @@
+# A list of additional packages
 utilities_extra: []
+
+# Force install Google Chrome (stable)
 utilities_is_install_chrome: false

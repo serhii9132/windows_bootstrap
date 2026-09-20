@@ -9,36 +9,12 @@ By default, the role installs:
 
 Role Variables
 --------------
-<table>
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Comment</th>
-    <th>Type</th>
-    <th>Default Value</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>utilities_extra</td>
-    <td>A list of additional packages</td>
-    <td>list</td>
-    <td>[]</td>
-  </tr>
-  <tr>
-    <td>utilities_is_install_chrome</td>
-    <td>Force install Google Chrome (stable)</td>
-    <td>bool</td>
-    <td>false</td>
-  </tr>
-</tbody>
-</table>
+The role variables and their descriptions can be found [here](https://github.com/serhii9132/windows_bootstrap/blob/main/roles/utilities/defaults/main.yaml)
 
 Example Playbook
 ----------------
 ```yaml
 - name: Install applications
-  gather_facts: true
   roles:
     - serhii9132.windows_bootstrap.utilities
 ```
