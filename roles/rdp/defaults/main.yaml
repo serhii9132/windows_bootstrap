@@ -1,2 +1,5 @@
+# Custom port for connection
 rdp_port: 33889
+
+# Whitelist of IP for connection
 rdp_list_allowed_ips: []

@@ -9,31 +9,7 @@ The role configures the RDP service:
 
 Role Variables
 --------------
-<table>
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Comment</th>
-    <th>Type</th>
-    <th>Default Value</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>rdp_port</td>
-    <td>Custom port for connection</td>
-    <td>int</td>
-    <td>33889</td>
-  </tr>
-  </tr>
-    <tr>
-    <td>rdp_list_allowed_ips</td>
-    <td>Whitelist of IP for connection</td>
-    <td>list</td>
-    <td>[]</td>
-  </tr>
-</tbody>
-</table>
+The role variables and their descriptions can be found [here](https://github.com/serhii9132/windows_bootstrap/blob/main/roles/rdp/defaults/main.yaml)
 
 Example Playbook
 ----------------
