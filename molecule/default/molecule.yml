@@ -12,4 +12,5 @@ provisioner:
   name: ansible
   env:
     ANSIBLE_VERBOSITY: 2
+    ANSIBLE_STDOUT_CALLBACK: yaml
     ANSIBLE_ROLES_PATH: "../../roles"
