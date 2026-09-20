@@ -1,0 +1,36 @@
+---
+- name: Install Active Directory features
+  ansible.windows.win_feature:
+    name: AD-Domain-Services
+    include_management_tools: true
+    include_sub_features: true
+    state: present
+  async: 1800
+  poll: 20
+  register: __ad_feature_install
+
+- name: Creating a new AD forest
+  microsoft.ad.domain:
+    create_dns_delegation: "{{ ad_create_dns_delegation }}"
+    dns_domain_name: "{{ ad_forest_name }}"
+    safe_mode_password: "{{ ad_safe_mode_password }}"
+  async: 1800
+  poll: 20
+  register: __ad_promotion
+
+- name: Reboot
+  ansible.windows.win_reboot:
+  when: __ad_promotion.reboot_required or __ad_feature_install.reboot_required
+
+- name: Set custom DNS
+  ansible.windows.win_dns_client:
+    adapter_names: "{{ __ad_target_connection_name }}"
+    dns_servers: "{{ [ad_custom_dns_1, ad_custom_dns_2] | reject('equalto', '') | list }}"
+  vars:
+    __ad_target_connection_name: >-
+      {{ (ansible_facts.interfaces
+          | selectattr('interface_name', 'equalto', ad_interface_name)
+          | first | default({})).connection_name | default('') }}
+  when:
+    - ad_interface_name != ""
+    - ad_custom_dns_1 != ""

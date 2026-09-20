@@ -1,0 +1,17 @@
+# The name of the new root domain and Active Directory forest (FQDN)
+ad_forest_name: ""
+
+# Password for DSRM
+ad_safe_mode_password: ""
+
+# Create a DNS delegation in the parent zone?
+ad_create_dns_delegation: false
+
+# The name of the network interface on which the DNS settings will be changed.
+ad_interface_name: ""
+
+# Main DNS
+ad_custom_dns_1: ""
+
+# Secondary DNS
+ad_custom_dns_2: ""
