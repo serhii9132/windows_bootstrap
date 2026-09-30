@@ -6,7 +6,7 @@ driver:
 
 platforms:
   - name: "molecule-test-vps"
-    template_name: ${os}-tmp
+    template_name: ${os}-ssh-tmp
 
 provisioner:
   name: ansible
